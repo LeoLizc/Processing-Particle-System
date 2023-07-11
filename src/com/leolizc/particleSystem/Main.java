@@ -15,7 +15,7 @@ public class Main extends PApplet {
 
     @Override
     public void setup() {
-        particleSystem = new SimpleParticleSystem(this, width / 2, height / 2);
+        particleSystem = new SimpleParticleSystem(this, width / 2f, height / 2f);
     }
 
     @Override
