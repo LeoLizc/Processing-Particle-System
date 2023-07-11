@@ -2,22 +2,27 @@ package com.leolizc.particleSystem;
 
 import processing.core.PApplet;
 
-public class Main extends PApplet{
-    public void settings(){
-        size(600,600);
+public class Main extends PApplet {
+    SimpleParticleSystem particleSystem;
+
+    public static void main(String[] args) {
+        PApplet.main("com.leolizc.particleSystem.Main");
+    }
+
+    public void settings() {
+        size(600, 600);
     }
 
     @Override
     public void setup() {
-        super.setup();
+        particleSystem = new SimpleParticleSystem(this, width / 2, height / 2);
     }
 
     @Override
     public void draw() {
-        super.draw();
-    }
+        background(255);
 
-    public static void main(String[] args){
-        PApplet.main("com.leolizc.particleSystem.Main");
+        particleSystem.addParticle();
+        particleSystem.run();
     }
 }
