@@ -3,7 +3,7 @@ package com.leolizc.particleSystem;
 import processing.core.PApplet;
 import processing.core.PVector;
 
-public class TemplatedParticleSystem extends ParticleSystem{
+public class TemplatedParticleSystem extends ParticleSystem {
 
     Particle template;
 
