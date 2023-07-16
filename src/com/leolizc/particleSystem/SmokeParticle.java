@@ -15,7 +15,7 @@ public class SmokeParticle extends Particle {
         acceleration.mult(0);
 
         // set a random velocity
-        velocity.set(p.randomGaussian() * 0.08f, p.randomGaussian() * 0.08f - 1);
+        velocity.set(p.randomGaussian() * 0.2f, p.randomGaussian() * 0.09f - 1);
 
         // generate a random texture using perlin noise 2D
         texture = p.createImage(40, 40, PApplet.ARGB);
