@@ -12,7 +12,7 @@ public abstract class Particle {
     PVector forces;//acceleration is an always applied force
 
     public Particle(PApplet p, PVector position) {
-        this.canvas= p;
+        this.canvas = p;
         this.position = position.copy();
         this.velocity = new PVector(0, 0);
         this.acceleration = new PVector(0, 0.05f);

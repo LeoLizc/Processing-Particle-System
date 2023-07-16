@@ -3,7 +3,7 @@ package com.leolizc.particleSystem;
 import processing.core.PApplet;
 import processing.core.PVector;
 
-public class SmokeParticle extends Particle{
+public class SmokeParticle extends Particle {
 
     public SmokeParticle(PApplet p, PVector position) {
         super(p, position);
@@ -12,7 +12,7 @@ public class SmokeParticle extends Particle{
         acceleration.mult(0);
 
         // set a random velocity
-        velocity.set(p.randomGaussian()*0.15f, p.randomGaussian()*0.1f-1);
+        velocity.set(p.randomGaussian() * 0.15f, p.randomGaussian() * 0.1f - 1);
 
     }
 
