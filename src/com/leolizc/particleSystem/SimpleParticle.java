@@ -5,27 +5,27 @@ import processing.core.PVector;
 
 public class SimpleParticle extends Particle {
 
-    public SimpleParticle(PVector position) {
-        super(position);
+    public SimpleParticle(PApplet p, PVector position) {
+        super(p, position);
     }
 
     @Override
-    public void render(PApplet p) {
-        p.stroke(0, lifeSpan);
-        p.fill(0, lifeSpan);
-        // check if p is a 3D sketch
-        if (p.g instanceof processing.opengl.PGraphics3D) {
-            p.pushMatrix();
-            p.translate(position.x, position.y, position.z);
-            p.sphere(5);
-            p.popMatrix();
+    public void render() {
+        canvas.stroke(0, lifeSpan);
+        canvas.fill(0, lifeSpan);
+        // check if canvas is a 3D sketch
+        if (canvas.g instanceof processing.opengl.PGraphics3D) {
+            canvas.pushMatrix();
+            canvas.translate(position.x, position.y, position.z);
+            canvas.sphere(5);
+            canvas.popMatrix();
         } else {
-            p.ellipse(position.x, position.y, 10, 10);
+            canvas.ellipse(position.x, position.y, 10, 10);
         }
     }
 
     @Override
     public Particle copy() {
-        return new SimpleParticle(position.copy());
+        return new SimpleParticle(canvas, position.copy());
     }
 }

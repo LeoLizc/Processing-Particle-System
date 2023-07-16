@@ -9,7 +9,7 @@ public class TemplatedParticleSystem extends ParticleSystem {
 
     public TemplatedParticleSystem(PApplet p, float x, float y) {
         super(p, new PVector(x, y));
-        template = new SimpleParticle(position);
+        template = new SimpleParticle(p, position);
     }
 
     public TemplatedParticleSystem(PApplet p, float x, float y, Particle template) {

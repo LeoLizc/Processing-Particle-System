@@ -23,7 +23,7 @@ public abstract class ParticleSystem {
         ListIterator<Particle> iterator = particles.listIterator();
         while (iterator.hasNext()) {
             Particle particle = iterator.next();
-            particle.render(p);
+            particle.render();
             particle.updatePhysics();
             if (particle.isDead()) {
                 iterator.remove();
