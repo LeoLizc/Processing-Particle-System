@@ -3,16 +3,24 @@ package com.leolizc.particleSystem;
 import processing.core.PApplet;
 import processing.core.PVector;
 
-public class SimpleParticle extends Particle {
+public class SmokeParticle extends Particle {
 
-    public SimpleParticle(PApplet p, PVector position) {
+    public SmokeParticle(PApplet p, PVector position) {
         super(p, position);
+
+        // set 0 acceleration
+        acceleration.mult(0);
+
+        // set a random velocity
+        velocity.set(p.randomGaussian() * 0.15f, p.randomGaussian() * 0.1f - 1);
+
     }
 
     @Override
     public void render() {
-        canvas.stroke(0, lifeSpan);
-        canvas.fill(0, lifeSpan);
+        canvas.noStroke();
+        canvas.fill(230f, lifeSpan);
+
         // check if canvas is a 3D sketch
         if (canvas.g instanceof processing.opengl.PGraphics3D) {
             canvas.pushMatrix();
@@ -25,7 +33,7 @@ public class SimpleParticle extends Particle {
     }
 
     @Override
-    public Particle copy() {
-        return new SimpleParticle(canvas, position.copy());
+    public SmokeParticle copy() {
+        return new SmokeParticle(canvas, position.copy());
     }
 }

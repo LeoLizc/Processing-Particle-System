@@ -10,7 +10,7 @@ public class SimpleParticleSystem extends ParticleSystem {
 
     @Override
     public void addParticle() {
-        Particle particle = new SimpleParticle(position);
+        Particle particle = new SimpleParticle(p, position);
         particle.velocity.set(p.random(-1, 1), p.random(-2, 0));
         particles.add(particle);
     }
