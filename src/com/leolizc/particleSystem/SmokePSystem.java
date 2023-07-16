@@ -3,7 +3,7 @@ package com.leolizc.particleSystem;
 import processing.core.PApplet;
 import processing.core.PVector;
 
-public class SmokePSystem extends ParticleSystem{
+public class SmokePSystem extends ParticleSystem {
 
     protected PVector wind;
 
