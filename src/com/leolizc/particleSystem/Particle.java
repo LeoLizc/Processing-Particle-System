@@ -10,40 +10,35 @@ public abstract class Particle {
     PVector position;
     PVector velocity;
     PVector acceleration;
-    PVector[] forces;//acceleration is an always applied force
+    PVector forces;//acceleration is an always applied force
 
     public Particle(PVector position) {
         this.position = position.copy();
         this.velocity = new PVector(0, 0);
         this.acceleration = new PVector(0, 0.05f);
         this.lifeSpan = 255;
-        this.forces = new PVector[10];
+        this.forces = new PVector();
     }
 
     public abstract void render(PApplet p);
 
     public void applyForce(PVector force) {
-        for (int i = 0; i < forces.length; i++) {
-            if (forces[i] == null) {
-                forces[i] = force.copy();
-                return;
-            }
-        }
+        forces.add(force);
     }
 
     public void updatePhysics() {
         PVector acceleration = this.acceleration.copy();
-        for (PVector force : forces) {
-            if (force != null) {
-                acceleration.add(force);
-            }
-        }
+        // Apply forces
+        // The particles have mass 1
+        acceleration.add(forces);
+
         velocity.add(acceleration);
         position.add(velocity);
         lifeSpan -= 2.0;
         // Remember that this.acceleration is an always applied force
         // so, we don't need to reset it
-        Arrays.fill(forces, null);
+        // instead, we reset the forces
+        forces.mult(0);
 
     }
 
