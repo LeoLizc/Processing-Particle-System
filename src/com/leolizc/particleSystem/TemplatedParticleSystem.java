@@ -17,6 +17,10 @@ public class TemplatedParticleSystem extends ParticleSystem {
         this.template = template;
     }
 
+    public void setTemplate(Particle template) {
+        this.template = template;
+        this.template.position = position.copy();
+    }
 
     @Override
     public void addParticle() {
