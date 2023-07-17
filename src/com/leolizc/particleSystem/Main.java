@@ -3,7 +3,7 @@ package com.leolizc.particleSystem;
 import processing.core.PApplet;
 
 public class Main extends PApplet {
-    TemplatedParticleSystem particleSystem;
+    SmokePSystem particleSystem;
 
     public static void main(String[] args) {
         PApplet.main("com.leolizc.particleSystem.Main");
@@ -15,8 +15,7 @@ public class Main extends PApplet {
 
     @Override
     public void setup() {
-        particleSystem = new TemplatedParticleSystem(this, width / 2f, height / 2f);
-        particleSystem.template = new SmokeParticle(this, particleSystem.position);
+        particleSystem = new SmokePSystem(this, width / 2f, height / 2f);
     }
 
     @Override
@@ -24,6 +23,11 @@ public class Main extends PApplet {
         background(255);
 
         particleSystem.addParticle();
+
+        //get mouse xposition
+        float mouseWind = map(mouseX, 0, width, -0.03f, 0.03f);
+        particleSystem.setWind(mouseWind);
+
         particleSystem.run();
     }
 }
