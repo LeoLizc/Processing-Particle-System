@@ -3,9 +3,10 @@ package com.leolizc.particleSystem;
 import processing.core.PApplet;
 import processing.core.PVector;
 
-public class CustomColorParticle extends Particle{
+public class CustomColorParticle extends Particle {
 
     int color;
+
     public CustomColorParticle(PApplet p, PVector position) {
         super(p, position);
         color = p.color(255, 0, 0);
